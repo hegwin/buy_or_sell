@@ -1,0 +1,6 @@
+---
+cn:
+  bid: "买入"
+  ask: "卖出"
+  bear_position: "空仓"
+  possession: "持仓"
