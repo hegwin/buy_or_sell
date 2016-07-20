@@ -1,6 +1,6 @@
 # compare MA5 & MA20
 
-require 'stock_quote'
+require './lib/h_stock'
 require 'i18n'
 
 I18n.load_path = Dir['./i18n/*.yml']
@@ -23,22 +23,13 @@ def trend(ma5, ma20, pma5, pma20)
   end
 end
 
-symbols = File.readlines('./portfolio.txt').map(&:chomp)
+symbols = File.readlines('./portfolio.txt').map(&:chomp)[0..1]
 results = {}
-end_date = ARGV[0] || Date.today.to_s
 
 symbols.each do |symbol|
+  ma = HStock::MA.get(symbol, limit: 2, types: [5, 20])
 
-  histories = StockQuote::Stock.history(symbol, '2015-10-01', end_date)
-  prices = histories.map(&:adj_close)
-
-  ma5 = prices[0..4].inject {|sum, price| sum + price } / 5
-  ma20 = prices[0..19].inject {|sum, price| sum + price } / 20
-
-  pma5 = prices[1..5].inject {|sum, price| sum + price } / 5
-  pma20 = prices[1..20].inject {|sum, price| sum + price } / 20
-
-  results[symbol] = I18n.t(trend(ma5, ma20, pma5, pma20))
+  results[symbol] = I18n.t(trend(ma[5].first, ma[20].first, ma[5].first, ma[20].last))
 
 end
 
