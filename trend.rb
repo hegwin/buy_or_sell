@@ -23,7 +23,7 @@ def trend(ma5, ma20, pma5, pma20)
   end
 end
 
-symbols = File.readlines('./portfolio.txt').map(&:chomp)[0..1]
+symbols = File.readlines('./portfolio.txt').map(&:chomp)
 results = {}
 
 symbols.each do |symbol|
