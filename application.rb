@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'action_mailer'
+require 'redis'
 
 class Mailer < ActionMailer::Base
   default from: "Stock@Hegwin<notice@stock.hegwin.me>"
@@ -35,4 +36,8 @@ configure do
     ActionMailer::Base.delivery_method = :file
     ActionMailer::Base.file_settings = { :location => File.join(Sinatra::Application.root, 'tmp/emails') }
   end
+
+  redisUri = ENV["REDISTOGO_URL"] || 'redis://localhost:6379'
+  uri = URI.parse(redisUri)
+  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end

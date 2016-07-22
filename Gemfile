@@ -5,6 +5,9 @@ gem 'sinatra'
 
 gem 'actionmailer', "~> 4.2.5", require: 'action_mailer'
 gem 'i18n'
+gem 'redis', '~>3.2'
 gem 'stock_quote'
 
-gem 'pry'
+group :development, :test do
+  gem 'pry'
+end
