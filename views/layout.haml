@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %link{href: '/css/bootstrap.min.css', rel: 'stylesheet', type: 'text/css'}
+    %title Ask or Bid
+  %body
+    %header
+      %nav.navbar.navbar-inverse{role: 'navigation'}
+        .container
+          .navbar-header
+            .navbar-brand
+              Ask or Bid
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav
+            %ul.nav.navbar-nav.navbar-right
+              %li 
+                %a About
+    .container
+      = yield
+
+    %footer
+      .container
+
+    %script(src='/js/jquery-3.1.0.min.js')
+    %script(src='/bootstrap.min.js')

@@ -36,6 +36,8 @@ GEM
     erubis (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -96,6 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionmailer (~> 4.2.5)
+  haml
   i18n
   pry
   redis (~> 3.2)

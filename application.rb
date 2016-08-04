@@ -13,7 +13,7 @@ class Mailer < ActionMailer::Base
 end
 
 get '/' do
-  'Yea!~'
+  haml :index
 end
 
 
