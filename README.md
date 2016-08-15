@@ -12,6 +12,7 @@ Test different ways of operation on stocks
 * Develop something for myself
 * Play with Heroku
 * Play with Redis
+* Learn [React](https://facebook.github.io/react)
 
 
 

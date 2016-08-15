@@ -13,13 +13,18 @@
           .navbar-collapse.collapse
             %ul.nav.navbar-nav
             %ul.nav.navbar-nav.navbar-right
-              %li 
+              %li
                 %a About
     .container
+      #index-title
       = yield
 
     %footer
       .container
 
+    %script(src='https://npmcdn.com/react@15.3.0/dist/react.min.js')
+    %script(src='https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js')
+    %script(src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.12.0/babel.min.js')
     %script(src='/js/jquery-3.1.0.min.js')
-    %script(src='/bootstrap.min.js')
+    %script(src='/js/bootstrap.min.js')
+    %script{src: '/js/components.js', type: 'text/babel'}
