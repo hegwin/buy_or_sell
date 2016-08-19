@@ -33,7 +33,17 @@ symbols.each do |symbol|
 
 end
 
-p results
+if ARGV[0] == 'insert'
+  require 'redis'
+  redisUri = ENV["REDISTOGO_URL"] || 'redis://localhost:6379'
+  uri = URI.parse(redisUri)
+  redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  results.each do |k, v|
+    redis.hset("trend-results", k, v)
+  end
+else
+  p results
+end
 
 __END__
 a = []

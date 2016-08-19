@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'action_mailer'
 require 'redis'
+require 'json'
 
 class Mailer < ActionMailer::Base
   default from: "Stock@Hegwin<notice@stock.hegwin.me>"
@@ -14,6 +15,12 @@ end
 
 get '/' do
   haml :index
+end
+
+get '/api/trend-results.json' do
+  content_type :json
+  results = REDIS.hgetall('trend-results')
+  results.to_json
 end
 
 
