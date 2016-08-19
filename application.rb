@@ -20,7 +20,7 @@ end
 get '/api/trend-results.json' do
   content_type :json
   results = REDIS.hgetall('trend-results')
-  results.to_json
+  results.map {|k, v| { symbol: k, evaluation: v  }}.to_json
 end
 
 
