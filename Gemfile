@@ -1,5 +1,5 @@
 source 'https://gems.ruby-china.com'
-ruby '3.0.1'
+ruby '3.2.2'
 
 gem 'sinatra'
 
